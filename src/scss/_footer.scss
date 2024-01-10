@@ -1,0 +1,27 @@
+.footer {
+    background-image: url("../assets/img/fondo-footer.jpg");
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    color: #f6e0a2;
+    ul {
+      list-style: none;
+      font-size: 1.2rem;
+    }
+  }
+  .footer-social {
+    ul {
+      display: flex;
+      gap: 1rem;
+      a {
+        color: #f6a2ee;
+      }
+    }
+  }
+  
+  .cierre{
+      font-size: 15px;
+  }

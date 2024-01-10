@@ -1,0 +1,99 @@
+[
+
+    {
+        "nameId":"Lomo fino",
+        "id":"1",
+        "type":"food",
+        "category":"met",
+        "name":"Lomo fino",
+        "precio":"60000"
+    },
+    {
+        "nameId":"Punta de anca",
+        "id":"2",
+        "type":"food",
+        "category":"met",
+        "name":"Punta de anca",
+        "precio":"55000"
+    },
+    {
+        "nameId":"Bondiola de cerdo",
+        "id":"3",
+        "type":"food",
+        "category":"pork",
+        "name":"Bondiola de cerdo",
+        "precio":"40000"
+    },
+    {
+        "nameId":"Pechuga",
+        "id":"4",
+        "type":"food",
+        "category":"chicken",
+        "name":"Pechuga",
+        "precio":"40000"
+    },
+    {
+        "nameId":"San burger",
+        "id":"5",
+        "type":"food",
+        "category":"burger",
+        "name":"San burger",
+        "precio":"30000"
+    },
+    {
+        "nameId":"Blue cheese",
+        "id":"6",
+        "type":"food",
+        "category":"burger",
+        "name":"Blue cheese",
+        "precio":"32000"
+    },
+    {
+        "nameId":"Cerveza Corona",
+        "id":"7",
+        "type":"drink",
+        "category":"beer",
+        "name":"Cerveza Corona",
+        "precio":"10000"
+    },
+    {
+        "nameId":"Cerveza Stella",
+        "id":"8",
+        "type":"drink",
+        "category":"beer",
+        "name":"Cerveza Stella",
+        "precio":"10000"
+    },
+    {
+        "nameId":"Soda Lichi",
+        "id":"9",
+        "type":"drink",
+        "category":"soda",
+        "name":"Soda Lichi",
+        "precio":"20000"
+    },
+    {
+        "nameId":"Soda Maracuya",
+        "id":"10",
+        "type":"drink",
+        "category":"soda",
+        "name":"Soda Maracuya",
+        "precio":"20000"
+    },
+    {
+        "nameId":"Pink tonic",
+        "id":"11",
+        "type":"drink",
+        "category":"coctel",
+        "name":"Pink tonic",
+        "precio":"30000"
+    },
+    {
+        "nameId":"Margarita",
+        "id":"12",
+        "type":"drink",
+        "category":"coctel",
+        "name":"Margarita",
+        "precio":"32000"
+    }
+]

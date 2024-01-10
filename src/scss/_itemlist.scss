@@ -1,0 +1,125 @@
+.section-cards{
+    text-align: center;
+    h1{
+        padding: 5rem;
+        font-family:sans-serif;
+        color: #ac0202;
+    }
+    .button-back{
+        padding: 0.8rem 2rem;
+        cursor: pointer;
+        color: white;
+        border-radius: 7px;
+        border:none;
+        background-color:#5100ff;
+        margin-bottom: 2rem;
+    }
+}
+.card-list{
+    display: grid;
+    border-radius: 8px;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: rgba(62, 159, 91, 0.8);
+    justify-content: center;
+    gap: 3rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+.card{
+border-radius: 8px;
+padding: 5px;
+display: flex;
+flex-direction: column;
+text-align: center;
+background-color: antiquewhite;
+a{
+    text-decoration: none;
+    color: blue;
+}
+
+h3{
+    font-size: 2rem;
+}
+p{
+    font-size: 1.2rem;
+    color: green;
+    padding: 1rem;
+}
+.add{
+    width: 100%;
+    font-family:'Roboto', sans-serif;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #5cfe6f;
+    border-color:#5cfe6f ;
+    cursor: pointer;
+}
+}
+.card-image img{
+    border-radius: 8px;
+    width: 100%;
+    height: 25rem;
+}
+.background{
+    background-image: url(../assets/img/fondo-comidas.jpg);
+    background-size: cover;
+    
+}
+.card-cantidad{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p{
+        margin-bottom: 5px;
+    }
+}
+.buttons{
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    button{
+        cursor: pointer;
+    }
+}
+.btn{
+    display: block;
+    width: 3rem;
+    text-align: center;
+    border-radius: 6px;
+    height: 1.5rem;
+    padding: 5px;
+    background-color: #0000ff82;
+    border-color: #0000ff82;
+}
+.item-image{
+    width: 20rem;
+    padding: 1rem;
+    img{
+        width: 100%;
+    }
+}
+.item-card{
+    display: flex;
+    button{
+    width: 100%;
+    font-family:'Roboto', sans-serif;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #5cfe6f;
+    border-color:#5cfe6f ;
+    }
+}
+.item-text{
+    width: 20rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    p{
+        font-size: 20px;
+    }
+
+}

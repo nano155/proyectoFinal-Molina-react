@@ -1,0 +1,62 @@
+.nav {
+  position: sticky;
+  top: 0px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  background-color: rgba(209, 209, 209, 0.2);
+}
+.nav-logo {
+  width: 4rem;
+  img {
+    width: 100%;
+  }
+}
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
+}
+.nav-social {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  align-items: center;
+  a {
+    color: black;
+  }
+  figure {
+    margin-left: 20px;
+  }
+  :nth-child(4) {
+    margin-left: 15px;
+    figure {
+      padding: 3px;
+      border-radius: 5px;
+      background-color: rgb(22, 108, 22);
+      margin: 0 auto;
+    }
+    .total-product{
+        background-color: red;
+        text-align: center;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        padding: 5px;
+        position: absolute;
+        top: 15px;
+        right: 1px;
+    }
+    .disabled{
+        display: none;
+    }
+  }
+}
