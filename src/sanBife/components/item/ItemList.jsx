@@ -3,6 +3,7 @@ import { ItemCard } from './ItemCard'
 import { UserContext } from '../../../context/UserContext'
 import { useParams } from 'react-router-dom'
 import { getFirestore, collection, getDocs, where, query } from 'firebase/firestore'
+import { Spinner } from '../spinner/Spinner'
 
 
 export const ItemList = () => {
@@ -23,15 +24,14 @@ export const ItemList = () => {
         setItem(res.docs.map(p => ({ id: p.id, ...p.data() }))))
     }
   }, [id])
-
   return (
     <>
       <div className='card-list content'>
         {
-          item?.map(item => (
+          item.length === 0 ?<Spinner/>
+          :item?.map(item => (
             <ItemCard key={item.id} {...item} />
           ))
-
         }
       </div>
 

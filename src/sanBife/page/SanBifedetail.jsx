@@ -16,9 +16,7 @@ export const SanBifedetail = () => {
     getDoc(queryDoc).then(res =>
       setItem({ id: res.id, ...res.data() }))
   }, [id])
-
-  console.log(item.category === undefined);
-
+  
   return (
     <>
 
@@ -28,7 +26,7 @@ export const SanBifedetail = () => {
             ?
             <p className='error-p'>No existe el poducto con el id <span>{id}</span> 😢!!</p>
             :
-            <ItemDetails key={item.id} {...item} item={item} />
+            <ItemDetails key={item.id} {...item} item={item} id={id} />
         }
       </div>
 

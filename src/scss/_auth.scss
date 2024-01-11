@@ -69,3 +69,12 @@
     right: 1rem;
     
 }
+.message{
+    border: 1px solid orange;
+    padding: 5px;
+    margin-top: 2rem;
+    border-radius: 5px;
+    span{
+        color: #01a101;
+    }
+}

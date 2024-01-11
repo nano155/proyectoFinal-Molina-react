@@ -1,17 +1,15 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Input } from '../../auth/components/Input'
 import { useForm } from '../../hooks/useForm'
 import { CheckoutInput } from '../components/checkaoutInput/CheckoutInput'
-import { Firestore, addDoc, collection, doc, getDoc, getFirestore, updateDoc } from 'firebase/firestore'
 import { UserContext } from '../../context/UserContext'
-import Swal from "sweetalert2"
-import { Link } from 'react-router-dom'
+
 
 
 export const SanBifeCheckout = () => {
-  const {cart, total, removeProduct, clearCart, alertMessage, ordenId} = useContext(UserContext)
+  const {cart, alertMessage, ordenId} = useContext(UserContext)
 
-  const {onReset, onInputChange, formState, displayName, lastName, email, emailConfirmation, phoneNumber, address} = useForm({
+  const {onReset, onInputChange, displayName, lastName, email, emailConfirmation, phoneNumber, address} = useForm({
     displayName:'',
     lastName:'',
     email:'',
@@ -27,6 +25,9 @@ export const SanBifeCheckout = () => {
     alertMessage(onReset, displayName, lastName, email, emailConfirmation, phoneNumber, address)
 
   };
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart])
 
 
   return (

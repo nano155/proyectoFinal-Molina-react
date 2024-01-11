@@ -1,22 +1,61 @@
 import { useState } from 'react'
 import { UserContext } from './UserContext'
-import { registerUserWithEmailPassword } from '../firebase/provider'
 import Swal from "sweetalert2"
 import { addDoc, collection, doc, getDoc, getFirestore, updateDoc } from 'firebase/firestore'
 
 
-const initial = 1
+const initialCount = 1
+const initialCart = JSON.parse(localStorage.getItem('cart')||[])
 
 export const UserProvider = ({ children }) => {
-  const [count, setCount] = useState(parseInt(initial))
-  const [cart, setCart] = useState([])
+  const [count, setCount] = useState(parseInt(initialCount))
+  const [cart, setCart] = useState(initialCart)
   const [errorBuy, setErrorBuy] = useState('')
   const [ordenId, setOrdenId] = useState('')
+  
 
+  const increment = (stock,quantity) => {
+    if(quantity){
+      count < quantity  && setCount(count + 1)
+    }
+    count < stock  && setCount(count + 1)
+  }
+  const decrement = () => {
+    count > 1 && setCount(count - 1)
+  }
+  
 
-  const increment = (stock) => {
-    if (count >= stock) return
-    setCount(count + 1)
+  const addProduct = (item, quantity) => {
+    if (isInCart(item.id)) {
+      setCart(
+        cart.map(product => {
+          return product.id === item.id
+            ? { ...product, quantity: product.quantity + quantity }
+            : product;
+        })
+      )
+    } else {
+      setCart([...cart, { ...item, quantity }])  
+    }
+    setCount(initialCount)
+  }
+
+  const total = () => {
+    return cart.reduce((prev, act) => prev + act.quantity * act.price, 0)
+  }
+
+  const totalProducts = () => {
+    return cart.reduce((acm, actual) => acm + actual.quantity, 0)
+  }
+
+  const clearCart = () => setCart([]);
+
+  const isInCart = (id) => {
+    return cart.find(product => product.id === id) ? true : false
+  }
+
+  const removeProduct = (id) => {
+    setCart(cart.filter(product => product.id !== id))
   }
 
   const alertMessage = (onReset, displayName, lastName, email, emailConfirmation, phoneNumber, address) => {
@@ -102,53 +141,12 @@ export const UserProvider = ({ children }) => {
         icon: "success",
         confirmButtonText: "Ok",
       });
+      setCart(initialCart)
       onReset()
   }
 
-  const decrement = () => {
-    if (count <= 1) return
-    setCount(count - 1)
-  }
-
-  const setContador = () => {
-    setCount(parseInt(initial))
-  }
-
-  const onAdd = (item, quantity) => {
-    if (isInCart(item.id)) {
-      setCart(
-        cart.map(product => {
-          return product.id === item.id
-            ? { ...product, quantity: product.quantity + quantity }
-            : product;
-        })
-      )
-    } else {
-      setCart([...cart, { ...item, quantity }])
-    }
-    setContador()
-  }
-
-  const total = () => {
-    return cart.reduce((prev, act) => prev + act.quantity * act.price, 0)
-  }
-
-  const totalProducts = () => {
-    return cart.reduce((acm, actual) => acm + actual.quantity, 0)
-  }
-
-  const clearCart = () => setCart([]);
-
-  const isInCart = (id) => {
-    return cart.find(product => product.id === id) ? true : false
-  }
-
-  const removeProduct = (id) => {
-    setCart(cart.filter(product => product.id !== id))
-  }
-
   return (
-    <UserContext.Provider value={{ increment, decrement, count, onAdd, total, totalProducts, clearCart, removeProduct, isInCart, cart, setContador, alertMessage, ordenId }}>
+    <UserContext.Provider value={{ isInCart ,increment, decrement, count, addProduct, total, totalProducts, clearCart, removeProduct, isInCart, cart, alertMessage, ordenId }}>
       {children}
     </UserContext.Provider>
   )

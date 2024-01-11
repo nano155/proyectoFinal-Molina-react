@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useContext } from 'react'
 import { UserContext } from '../../context/UserContext'
 import { Link } from 'react-router-dom'
@@ -11,21 +11,25 @@ export const SanBifeCart = () => {
   const { cart, total, removeProduct } = useContext(UserContext)
 
 
-  const order = {
-    buyer:{
-      displayName:'isabel',
-      email:'nano@gmail.com',
-      phoneNumber:'234654613',
-      address:'calle falsa 123',
-    },
-    item: cart.map(car => ({
-      id:car.id,
-      name:car.name,
-      price:car.price,
-      quantity:car.quantity
-    })),
-    total:total()
-  }
+  // const order = {
+  //   buyer:{
+  //     displayName:'isabel',
+  //     email:'nano@gmail.com',
+  //     phoneNumber:'234654613',
+  //     address:'calle falsa 123',
+  //   },
+  //   item: cart.map(car => ({
+  //     id:car.id,
+  //     name:car.name,
+  //     price:car.price,
+  //     quantity:car.quantity
+  //   })),
+  //   total:total()
+  // }
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart])
+  
 
 
   if (cart.length === 0) {
